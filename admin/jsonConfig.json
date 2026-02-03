@@ -1,0 +1,134 @@
+{
+  "type": "tabs",
+  "items": {
+    "connection": {
+      "type": "panel",
+      "label": "tab_connection",
+      "items": {
+        "gatewayIp": {
+          "type": "text",
+          "label": "gatewayIp",
+          "placeholder": "192.168.1.2"
+        },
+        "gatewayPort": {
+          "type": "number",
+          "label": "gatewayPort",
+          "min": 1,
+          "max": 65535,
+          "default": 3671
+        },
+        "localInterface": {
+          "type": "text",
+          "label": "localInterface",
+          "placeholder": "e.g. 192.168.1.10"
+        },
+        "physAddr": {
+          "type": "text",
+          "label": "physAddr",
+          "placeholder": "1.1.250"
+        },
+        "loglevel": {
+          "type": "select",
+          "label": "loglevel",
+          "options": [
+            { "label": "error", "value": "error" },
+            { "label": "warn", "value": "warn" },
+            { "label": "info", "value": "info" },
+            { "label": "debug", "value": "debug" },
+            { "label": "trace", "value": "trace" }
+          ]
+        }
+      }
+    },
+    "import": {
+      "type": "panel",
+      "label": "tab_import",
+      "items": {
+        "etsProjectFile": {
+          "type": "text",
+          "label": "etsProjectFile",
+          "placeholder": "project.knxproj (upload via Files -> nexowatt-knx)"
+        },
+        "importOnStart": {
+          "type": "checkbox",
+          "label": "importOnStart"
+        },
+        "gaStyleOverride": {
+          "type": "select",
+          "label": "gaStyleOverride",
+          "options": [
+            { "label": "auto", "value": "auto" },
+            { "label": "ThreeLevel (x/y/z)", "value": "ThreeLevel" },
+            { "label": "TwoLevel (x/y)", "value": "TwoLevel" }
+          ]
+        },
+        "readOnStart": {
+          "type": "checkbox",
+          "label": "readOnStart"
+        }
+      }
+    },
+    "manual": {
+      "type": "panel",
+      "label": "tab_manual",
+      "items": {
+        "manualDatapoints": {
+          "type": "table",
+          "label": "manualDatapoints",
+          "items": {
+            "name": {
+              "type": "text",
+              "label": "dp_name"
+            },
+            "ga": {
+              "type": "text",
+              "label": "dp_ga",
+              "placeholder": "1/2/3"
+            },
+            "dpt": {
+              "type": "text",
+              "label": "dp_dpt",
+              "placeholder": "1.001"
+            },
+            "readFlag": {
+              "type": "checkbox",
+              "label": "dp_read"
+            },
+            "writeFlag": {
+              "type": "checkbox",
+              "label": "dp_write"
+            },
+            "transmitFlag": {
+              "type": "checkbox",
+              "label": "dp_transmit"
+            }
+          }
+        }
+      }
+    },
+    "advanced": {
+      "type": "panel",
+      "label": "tab_advanced",
+      "items": {
+        "forceTunneling": {
+          "type": "checkbox",
+          "label": "forceTunneling"
+        },
+        "localEcho": {
+          "type": "checkbox",
+          "label": "localEcho"
+        },
+        "minimumDelayMs": {
+          "type": "number",
+          "label": "minimumDelayMs",
+          "min": 0,
+          "max": 1000
+        },
+        "ackOnWrite": {
+          "type": "checkbox",
+          "label": "ackOnWrite"
+        }
+      }
+    }
+  }
+}

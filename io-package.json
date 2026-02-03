@@ -1,0 +1,93 @@
+{
+  "common": {
+    "name": "nexowatt-knx",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "Initial clean-room release.",
+        "de": "Erstes Clean-Room-Release."
+      }
+    },
+    "title": {
+      "en": "NexoWatt KNX",
+      "de": "NexoWatt KNX"
+    },
+    "titleLang": "en",
+    "desc": {
+      "en": "License-free KNXnet/IP bridge for ioBroker-based NexoWatt EMS.",
+      "de": "Lizenzfreies KNXnet/IP-Bridge-Adapter für das ioBroker-basierte NexoWatt EMS."
+    },
+    "authors": [
+      "NexoWatt"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "icon": "nexowatt-knx.png",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "push",
+    "type": "hardware",
+    "materialize": true,
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [],
+    "globalDependencies": []
+  },
+  "native": {
+    "gatewayIp": "",
+    "gatewayPort": 3671,
+    "localInterface": "",
+    "physAddr": "1.1.250",
+    "loglevel": "info",
+    "forceTunneling": false,
+    "localEcho": true,
+    "minimumDelayMs": 25,
+
+    "readOnStart": true,
+    "ackOnWrite": true,
+
+    "importOnStart": false,
+    "etsProjectFile": "",
+    "gaStyleOverride": "auto",
+
+    "manualDatapoints": []
+  },
+  "objects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Info"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": "Connection",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.etsHash",
+      "type": "state",
+      "common": {
+        "name": "ETS project hash",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ],
+  "instanceObjects": []
+}

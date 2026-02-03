@@ -1,0 +1,34 @@
+{
+  "name": "iobroker.nexowatt-knx",
+  "version": "0.0.1",
+  "description": "NexoWatt KNX adapter for ioBroker (clean-room implementation)",
+  "author": "NexoWatt",
+  "homepage": "https://nexowatt.example",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "KNX",
+    "KNXnet/IP",
+    "NexoWatt",
+    "EMS",
+    "building automation",
+    "smart home"
+  ],
+  "main": "main.js",
+  "files": [
+    "admin/",
+    "lib/",
+    "main.js",
+    "io-package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.1.4",
+    "ets_proj_parser": "^1.0.3",
+    "knx": "^2.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
