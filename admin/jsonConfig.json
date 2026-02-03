@@ -75,34 +75,46 @@
         "manualDatapoints": {
           "type": "table",
           "label": "manualDatapoints",
-          "items": {
-            "name": {
+          "items": [
+            {
               "type": "text",
-              "label": "dp_name"
+              "attr": "name",
+              "title": "dp_name",
+              "width": "25%"
             },
-            "ga": {
+            {
               "type": "text",
-              "label": "dp_ga",
+              "attr": "ga",
+              "title": "dp_ga",
+              "width": "20%",
               "placeholder": "1/2/3"
             },
-            "dpt": {
+            {
               "type": "text",
-              "label": "dp_dpt",
+              "attr": "dpt",
+              "title": "dp_dpt",
+              "width": "15%",
               "placeholder": "1.001"
             },
-            "readFlag": {
+            {
               "type": "checkbox",
-              "label": "dp_read"
+              "attr": "readFlag",
+              "title": "dp_read",
+              "width": "10%"
             },
-            "writeFlag": {
+            {
               "type": "checkbox",
-              "label": "dp_write"
+              "attr": "writeFlag",
+              "title": "dp_write",
+              "width": "10%"
             },
-            "transmitFlag": {
+            {
               "type": "checkbox",
-              "label": "dp_transmit"
+              "attr": "transmitFlag",
+              "title": "dp_transmit",
+              "width": "10%"
             }
-          }
+          ]
         }
       }
     },
