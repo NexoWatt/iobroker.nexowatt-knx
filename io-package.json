@@ -1,11 +1,19 @@
 {
   "common": {
     "name": "nexowatt-knx",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "news": {
       "0.0.1": {
         "en": "Initial clean-room release.",
         "de": "Erstes Clean-Room-Release."
+      },
+      "0.0.2": {
+        "en": "Fix admin crash in manual datapoints table.",
+        "de": "Fix: Admin-Absturz in der Tabelle für manuelle Datenpunkte."
+      },
+      "0.0.3": {
+        "en": "German admin UI + ETS file upload via fileSelector.",
+        "de": "Deutsche Admin-Oberfläche + ETS-Datei-Upload (Drag&Drop) via fileSelector."
       }
     },
     "title": {
@@ -33,7 +41,8 @@
       "config": "json"
     },
     "dependencies": [],
-    "globalDependencies": []
+    "globalDependencies": [],
+    "messagebox": true
   },
   "native": {
     "gatewayIp": "",
@@ -44,14 +53,11 @@
     "forceTunneling": false,
     "localEcho": true,
     "minimumDelayMs": 25,
-
     "readOnStart": true,
     "ackOnWrite": true,
-
     "importOnStart": false,
     "etsProjectFile": "",
     "gaStyleOverride": "auto",
-
     "manualDatapoints": []
   },
   "objects": [
@@ -89,5 +95,17 @@
       "native": {}
     }
   ],
-  "instanceObjects": []
+  "instanceObjects": [
+    {
+      "_id": "files",
+      "type": "meta",
+      "common": {
+        "name": {
+          "en": "File storage",
+          "de": "Dateispeicher"
+        }
+      },
+      "native": {}
+    }
+  ]
 }

@@ -24,12 +24,18 @@
 - **Local echo**: hilfreich, um eigene Writes wieder als Event zu sehen
 
 ### ETS Import
-1. In ioBroker Admin → **Dateien** → Ordner **nexowatt-knx** → `.knxproj` hochladen
-2. Im Adapter setzen: **ETS project file** (Dateiname)
-3. **Import on start** aktivieren
-4. Adapter neu starten
+Du kannst dein ETS‑Projekt (`.knxproj`) direkt im Adapter hochladen:
 
-> Große ETS Projekte können beim Import merklich dauern.
+1. In den Adapter‑Einstellungen → Tab **ETS‑Import**
+2. `.knxproj` **per Drag & Drop** hochladen und auswählen
+3. Entweder:
+   - **„Jetzt importieren“** drücken **oder**
+   - **„Beim Start importieren“** aktivieren und Adapter neu starten
+
+Alternativ kannst du die Datei auch im ioBroker Admin unter **Dateien** in den Ordner  
+`nexowatt-knx.0.files/ets/` hochladen und dann im Dropdown auswählen.
+
+> Große ETS‑Projekte können beim Import merklich dauern.
 
 ### Manuelle Datenpunkte
 Für schnelle Tests oder kleine Installationen kannst du GAs manuell hinzufügen.

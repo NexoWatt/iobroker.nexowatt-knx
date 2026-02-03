@@ -1,117 +1,160 @@
 {
+  "i18n": true,
   "type": "tabs",
   "items": {
     "connection": {
       "type": "panel",
-      "label": "tab_connection",
+      "label": "TAB_CONNECTION",
       "items": {
         "gatewayIp": {
           "type": "text",
-          "label": "gatewayIp",
+          "label": "GATEWAY_IP",
           "placeholder": "192.168.1.2"
         },
         "gatewayPort": {
           "type": "number",
-          "label": "gatewayPort",
+          "label": "GATEWAY_PORT",
           "min": 1,
           "max": 65535,
           "default": 3671
         },
         "localInterface": {
           "type": "text",
-          "label": "localInterface",
-          "placeholder": "e.g. 192.168.1.10"
+          "label": "LOCAL_INTERFACE",
+          "placeholder": "z.B. 192.168.1.10"
         },
         "physAddr": {
           "type": "text",
-          "label": "physAddr",
+          "label": "PHYS_ADDR",
           "placeholder": "1.1.250"
         },
         "loglevel": {
           "type": "select",
-          "label": "loglevel",
+          "label": "LOGLEVEL",
           "options": [
-            { "label": "error", "value": "error" },
-            { "label": "warn", "value": "warn" },
-            { "label": "info", "value": "info" },
-            { "label": "debug", "value": "debug" },
-            { "label": "trace", "value": "trace" }
+            {
+              "label": "error",
+              "value": "error"
+            },
+            {
+              "label": "warn",
+              "value": "warn"
+            },
+            {
+              "label": "info",
+              "value": "info"
+            },
+            {
+              "label": "debug",
+              "value": "debug"
+            },
+            {
+              "label": "trace",
+              "value": "trace"
+            }
           ]
         }
       }
     },
     "import": {
       "type": "panel",
-      "label": "tab_import",
+      "label": "TAB_IMPORT",
       "items": {
+        "_importInfo": {
+          "type": "staticText",
+          "text": "ETS_IMPORT_INFO",
+          "sm": 12
+        },
         "etsProjectFile": {
-          "type": "text",
-          "label": "etsProjectFile",
-          "placeholder": "project.knxproj (upload via Files -> nexowatt-knx)"
+          "type": "fileSelector",
+          "label": "ETS_PROJECT_FILE",
+          "pattern": "ets/*.knxproj",
+          "objectID": "nexowatt-knx.%INSTANCE%.files",
+          "upload": "ets",
+          "refresh": true,
+          "delete": true,
+          "maxSize": 31457280,
+          "noNone": true,
+          "withFolder": true
         },
         "importOnStart": {
           "type": "checkbox",
-          "label": "importOnStart"
+          "label": "IMPORT_ON_START"
         },
         "gaStyleOverride": {
           "type": "select",
-          "label": "gaStyleOverride",
+          "label": "GA_STYLE_OVERRIDE",
           "options": [
-            { "label": "auto", "value": "auto" },
-            { "label": "ThreeLevel (x/y/z)", "value": "ThreeLevel" },
-            { "label": "TwoLevel (x/y)", "value": "TwoLevel" }
+            {
+              "label": "Auto",
+              "value": "auto"
+            },
+            {
+              "label": "Drei-Level (x/y/z)",
+              "value": "ThreeLevel"
+            },
+            {
+              "label": "Zwei-Level (x/y)",
+              "value": "TwoLevel"
+            }
           ]
         },
         "readOnStart": {
           "type": "checkbox",
-          "label": "readOnStart"
+          "label": "READ_ON_START"
+        },
+        "importNow": {
+          "type": "sendTo",
+          "label": "IMPORT_NOW",
+          "command": "importEts",
+          "showProcess": true,
+          "timeout": 120000,
+          "newLine": true
         }
       }
     },
     "manual": {
       "type": "panel",
-      "label": "tab_manual",
+      "label": "TAB_MANUAL",
       "items": {
         "manualDatapoints": {
           "type": "table",
-          "label": "manualDatapoints",
+          "label": "MANUAL_DATAPOINTS",
           "items": [
             {
               "type": "text",
               "attr": "name",
-              "title": "dp_name",
-              "width": "25%"
+              "title": "DP_NAME",
+              "width": "20%"
             },
             {
               "type": "text",
               "attr": "ga",
-              "title": "dp_ga",
-              "width": "20%",
-              "placeholder": "1/2/3"
+              "title": "DP_GA",
+              "width": "20%"
             },
             {
               "type": "text",
               "attr": "dpt",
-              "title": "dp_dpt",
-              "width": "15%",
-              "placeholder": "1.001"
+              "title": "DP_DPT",
+              "width": "15%"
             },
             {
               "type": "checkbox",
               "attr": "readFlag",
-              "title": "dp_read",
+              "title": "DP_READ",
               "width": "10%"
             },
             {
               "type": "checkbox",
               "attr": "writeFlag",
-              "title": "dp_write",
+              "title": "DP_WRITE",
               "width": "10%"
             },
             {
               "type": "checkbox",
               "attr": "transmitFlag",
-              "title": "dp_transmit",
+              "title": "DP_TRANSMIT",
               "width": "10%"
             }
           ]
@@ -120,25 +163,25 @@
     },
     "advanced": {
       "type": "panel",
-      "label": "tab_advanced",
+      "label": "TAB_ADVANCED",
       "items": {
         "forceTunneling": {
           "type": "checkbox",
-          "label": "forceTunneling"
+          "label": "FORCE_TUNNELING"
         },
         "localEcho": {
           "type": "checkbox",
-          "label": "localEcho"
+          "label": "LOCAL_ECHO"
         },
         "minimumDelayMs": {
           "type": "number",
-          "label": "minimumDelayMs",
+          "label": "MIN_DELAY_MS",
           "min": 0,
           "max": 1000
         },
         "ackOnWrite": {
           "type": "checkbox",
-          "label": "ackOnWrite"
+          "label": "ACK_ON_WRITE"
         }
       }
     }

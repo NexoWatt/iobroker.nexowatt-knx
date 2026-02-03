@@ -145,7 +145,7 @@ class NexowattKnx extends utils.Adapter {
     const fileName = String(this.config.etsProjectFile || '').trim();
     if (!fileName) throw new Error('No ETS project file configured');
 
-    this.log.info(`Importing ETS project from ioBroker Files: ${this.name}/${fileName}`);
+    this.log.info(`Importing ETS project from ioBroker Files: ${this.namespace}.files/${fileName}`);
 
     const { hash, style, entries } = await importEtsProject(this, fileName, {
       gaStyleOverride: this.config.gaStyleOverride || 'auto'
