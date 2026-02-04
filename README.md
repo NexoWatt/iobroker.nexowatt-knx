@@ -24,16 +24,14 @@
 - **Local echo**: hilfreich, um eigene Writes wieder als Event zu sehen
 
 ### ETS Import
-Du kannst dein ETS‑Projekt (`.knxproj`) direkt im Adapter hochladen:
+Auf manchen ioBroker Admin‑Versionen ist das eingebaute `fileSelector`‑Control instabil
+und kann die Admin‑UI crashen. Deshalb setzt dieser Adapter auf einen *robusten Workflow*:
 
-1. In den Adapter‑Einstellungen → Tab **ETS‑Import**
-2. `.knxproj` **per Drag & Drop** hochladen und auswählen
-3. Entweder:
-   - **„Jetzt importieren“** drücken **oder**
-   - **„Beim Start importieren“** aktivieren und Adapter neu starten
-
-Alternativ kannst du die Datei auch im ioBroker Admin unter **Dateien** in den Ordner  
-`nexowatt-knx.0.files/ets/` hochladen und dann im Dropdown auswählen.
+1. Im ioBroker Admin unter **Dateien** die ETS‑Projektdatei (`.knxproj`) in den Ordner der Instanz hochladen
+   (empfohlen: `nexowatt-knx.0.files/ets/`).
+2. Im Adapter‑Tab **ETS‑Import** den relativen Pfad eintragen (z.B. `ets/MeinProjekt.knxproj`) **oder**
+   auf **„ETS-Datei automatisch finden“** klicken.
+3. **„Jetzt importieren“** drücken (oder **„Beim Start importieren“** aktivieren).
 
 > Große ETS‑Projekte können beim Import merklich dauern.
 

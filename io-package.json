@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "nexowatt-knx",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "news": {
       "0.0.1": {
         "en": "Initial clean-room release.",
@@ -18,6 +18,10 @@
       "0.0.4": {
         "en": "Fix ETS file upload: ensure meta file storage exists on upgrades; improve fileSelector robustness.",
         "de": "Fix ETS-Datei-Upload: Meta-Dateispeicher wird auch bei Updates angelegt; fileSelector robuster."
+      },
+      "0.0.5": {
+        "en": "Fix admin crash on ETS upload by removing buggy fileSelector and adding safe auto-detect workflow.",
+        "de": "Fix: Admin-Absturz beim ETS-Upload durch Entfernen von fileSelector; sicherer Auto-Detect-Workflow."
       }
     },
     "title": {

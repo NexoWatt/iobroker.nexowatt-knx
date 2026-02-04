@@ -66,15 +66,23 @@
           "sm": 12
         },
         "etsProjectFile": {
-          "type": "fileSelector",
+          "type": "text",
           "label": "ETS_PROJECT_FILE",
-          "pattern": "**/*.knxproj",
-          "objectID": "nexowatt-knx.%INSTANCE%.files",
-          "upload": "ets",
-          "refresh": true,
-          "delete": true,
-          "maxSize": "30MB",
-          "withFolder": true
+          "placeholder": "ets/MeinProjekt.knxproj"
+        },
+        "_uploadHint": {
+          "type": "staticText",
+          "text": "ETS_UPLOAD_HINT",
+          "sm": 12
+        },
+        "detectEts": {
+          "type": "sendTo",
+          "label": "DETECT_ETS",
+          "command": "detectEts",
+          "useNative": true,
+          "showProcess": true,
+          "timeout": 30000,
+          "newLine": true
         },
         "importOnStart": {
           "type": "checkbox",

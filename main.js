@@ -150,6 +150,41 @@ class NexowattKnx extends utils.Adapter {
         this.sendTo(obj.from, obj.command, { ok: false, error: e?.message || String(e) }, obj.callback);
       }
     }
+
+    if (obj.command === 'detectEts') {
+      try {
+        const file = await this.detectLatestEtsFile();
+        if (!file) {
+          this.sendTo(
+            obj.from,
+            obj.command,
+            {
+              ok: false,
+              error: `No .knxproj found in ioBroker Files for ${this.namespace} (checked root and 'ets/' folder).`
+            },
+            obj.callback
+          );
+          return;
+        }
+
+        // Provide `native` so jsonConfig sendTo with `useNative: true` can apply it.
+        this.sendTo(
+          obj.from,
+          obj.command,
+          {
+            ok: true,
+            native: {
+              etsProjectFile: file
+            },
+            saveConfig: true,
+            result: file
+          },
+          obj.callback
+        );
+      } catch (e) {
+        this.sendTo(obj.from, obj.command, { ok: false, error: e?.message || String(e) }, obj.callback);
+      }
+    }
   }
 
   // -------------------------
@@ -176,6 +211,60 @@ class NexowattKnx extends utils.Adapter {
     }
 
     this.log.info('ETS objects created/updated.');
+  }
+
+  /**
+   * Try to find the newest `.knxproj` in ioBroker file storage.
+   *
+   * We intentionally avoid the jsonConfig `fileSelector` here, because some Admin versions
+   * crash with it. This method supports a robust workflow:
+   * - upload file via ioBroker Admin -> Files
+   * - click "Auto-detect" in the adapter config
+   *
+   * @returns {Promise<string|null>} Relative path inside `${this.namespace}.files` (e.g. `ets/project.knxproj`)
+   */
+  async detectLatestEtsFile() {
+    const root = `${this.namespace}.files`;
+
+    /** @type {{path:string, t:number}[]} */
+    const candidates = [];
+
+    const scanDirs = ['', 'ets'];
+
+    for (const dir of scanDirs) {
+      let list;
+      try {
+        list = await this.readDirAsync(root, dir);
+      } catch {
+        continue;
+      }
+
+      if (!Array.isArray(list)) continue;
+
+      for (const entry of list) {
+        if (!entry) continue;
+
+        const file = entry.file || entry.name;
+        if (!file || typeof file !== 'string') continue;
+
+        const isDir = Boolean(entry.isDir || entry.isDirectory);
+        if (isDir) continue;
+
+        if (!file.toLowerCase().endsWith('.knxproj')) continue;
+
+        const rel = dir ? `${dir}/${file}` : file;
+
+        const mtime = entry.stats?.mtime ? new Date(entry.stats.mtime).getTime() : 0;
+        const ctime = entry.stats?.ctime ? new Date(entry.stats.ctime).getTime() : 0;
+        const t = Math.max(mtime || 0, ctime || 0);
+
+        candidates.push({ path: rel, t });
+      }
+    }
+
+    if (!candidates.length) return null;
+    candidates.sort((a, b) => (b.t || 0) - (a.t || 0));
+    return candidates[0].path;
   }
 
   /**

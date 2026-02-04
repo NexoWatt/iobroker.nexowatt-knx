@@ -1,6 +1,6 @@
 {
   "name": "iobroker.nexowatt-knx",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "NexoWatt KNX adapter for ioBroker (clean-room implementation)",
   "author": "NexoWatt",
   "homepage": "https://nexowatt.example",
