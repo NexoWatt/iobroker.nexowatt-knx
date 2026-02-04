@@ -46,6 +46,21 @@ class NexowattKnx extends utils.Adapter {
     if (!this.config.gatewayPort) this.config.gatewayPort = 3671;
     if (!this.config.loglevel) this.config.loglevel = 'info';
 
+    // Ensure meta object for file storage exists.
+    // Note: `instanceObjects` from io-package.json are only applied when the instance is created.
+    // If the adapter was upgraded from an earlier version, the meta object can be missing and
+    // fileSelector/file access will crash/fail.
+    await this.setObjectNotExistsAsync('files', {
+      type: 'meta',
+      common: {
+        name: {
+          en: 'File storage',
+          de: 'Dateispeicher'
+        }
+      },
+      native: {}
+    });
+
     // Ensure info states exist (io-package.json also defines them, but this makes dev-mode robust)
     await this.setObjectNotExistsAsync('info', {
       type: 'channel',

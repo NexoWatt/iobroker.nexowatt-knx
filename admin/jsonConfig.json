@@ -68,13 +68,12 @@
         "etsProjectFile": {
           "type": "fileSelector",
           "label": "ETS_PROJECT_FILE",
-          "pattern": "ets/*.knxproj",
+          "pattern": "**/*.knxproj",
           "objectID": "nexowatt-knx.%INSTANCE%.files",
           "upload": "ets",
           "refresh": true,
           "delete": true,
-          "maxSize": 31457280,
-          "noNone": true,
+          "maxSize": "30MB",
           "withFolder": true
         },
         "importOnStart": {

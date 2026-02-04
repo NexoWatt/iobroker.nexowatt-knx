@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "nexowatt-knx",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "news": {
       "0.0.1": {
         "en": "Initial clean-room release.",
@@ -14,6 +14,10 @@
       "0.0.3": {
         "en": "German admin UI + ETS file upload via fileSelector.",
         "de": "Deutsche Admin-Oberfläche + ETS-Datei-Upload (Drag&Drop) via fileSelector."
+      },
+      "0.0.4": {
+        "en": "Fix ETS file upload: ensure meta file storage exists on upgrades; improve fileSelector robustness.",
+        "de": "Fix ETS-Datei-Upload: Meta-Dateispeicher wird auch bei Updates angelegt; fileSelector robuster."
       }
     },
     "title": {
